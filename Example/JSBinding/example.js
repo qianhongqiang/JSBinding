@@ -18,15 +18,7 @@ var textView = UITextView()
 textView.setFrame(CGRect(52,14,screenBound.width - 36 * 2 - 38 - 9 * 2 - 10,19))
 inputBar.addSubview(textView)
 
-var button = UIButton()
-button.setBackgroundColor(UIColor(1,0.2,0.1,1))
-button.setFrame(CGRect(20,550,200,50))
-
-var button2 = UIButton()
-button2.setBackgroundColor(UIColor(1,0.2,0.1,1))
-button2.setFrame(CGRect(20,350,200,50))
-
-var data = ["Saab","Volvo","BMW","dshdjshd","dsdsds"]
+var data = ["hello","world","test","dshdjshd"]
 
 function viewDidLoad()
 {
@@ -39,7 +31,8 @@ function viewDidLoad()
                        var keyBoardHeight = noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height
                        animateWithDuration(function()
                                            {
-                                           inputBar.setFrame(CGRect(0,screenBound.height - 44 - keyBoardHeight,screenBound.width,44))
+                                           inputBar.setFrame(CGRect(0,screenBound.height - 46 - keyBoardHeight,screenBound.width,46))
+                                           table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46 - keyBoardHeight));
                                            });
                        })
     addObserverForName("UIKeyboardWillHideNotification",function(noti)
@@ -47,7 +40,8 @@ function viewDidLoad()
                        var keyBoardHeight = noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height
                        animateWithDuration(function()
                                            {
-                                           inputBar.setFrame(CGRect(0,screenBound.height - 44,screenBound.width,44))
+                                           inputBar.setFrame(CGRect(0,screenBound.height - 46,screenBound.width,46))
+                                           table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46));
                                            });
                        })
 }
