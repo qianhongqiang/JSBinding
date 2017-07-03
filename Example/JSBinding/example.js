@@ -36,7 +36,6 @@ function viewDidLoad()
     
     addObserverForName("UIKeyboardWillShowNotification",function(noti)
                        {
-                       log(noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height)
                        var keyBoardHeight = noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height
                        animateWithDuration(function()
                                            {
@@ -45,7 +44,6 @@ function viewDidLoad()
                        })
     addObserverForName("UIKeyboardWillHideNotification",function(noti)
                        {
-                       log(noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height)
                        var keyBoardHeight = noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height
                        animateWithDuration(function()
                                            {
@@ -97,9 +95,17 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
     return cell
 }
 
+function scrollToBottomAnimated(animated)
+{
+    var rows = table.numberOfRowsInSection(0)
+    if(rows > 0) {
+        table.scrollToRowAtIndexPathAtScrollPositionAnimated(NSIndexPath(rows - 1,0),3,1)
+    }
+}
+
 function textViewDidBeginEditing(textView)
 {
-    log(textView)
+    log("textViewDidBeginEditing")
 }
 
 function textView_shouldChangeTextInRange_replacementText(c_textView,range,text)
@@ -107,6 +113,8 @@ function textView_shouldChangeTextInRange_replacementText(c_textView,range,text)
     if(text === "\n") {
         data.push(c_textView.text())
         table.reloadData()
+        
+        scrollToBottomAnimated(true)
         c_textView.setText("")
     }
     return true

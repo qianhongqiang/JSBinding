@@ -83,6 +83,10 @@
             return [JSValue valueWithRect:CGRectMake(doubleArg(0), doubleArg(1), doubleArg(2), doubleArg(3)) inContext:weakContext];
         };
         
+        _JSContext[@"NSIndexPath"] = ^id {
+            return [NSIndexPath indexPathForRow:intArg(0) inSection:intArg(1)];
+        };
+        
         _JSContext[@"UIEdgeInsets"] = ^id{
             JSBUIEdgeInsets *edgeO = [[JSBUIEdgeInsets alloc] init];
             UIEdgeInsets zz = UIEdgeInsetsMake(doubleArg(0), doubleArg(1), doubleArg(2), doubleArg(3));

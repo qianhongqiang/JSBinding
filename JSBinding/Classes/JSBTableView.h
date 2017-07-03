@@ -15,6 +15,10 @@
 
 - (void)reloadData;
 
+- (NSInteger)numberOfRowsInSection:(NSInteger)section;
+
+- (void)scrollToRowAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
+
 @end
 
 @interface JSBTableView : UITableView<JSBTableViewJSBindingProtocol,UITableViewDelegate,UITableViewDataSource>
