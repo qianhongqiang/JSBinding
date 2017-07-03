@@ -1,0 +1,6 @@
+framework module JSBinding {
+  umbrella header "JSBinding-umbrella.h"
+
+  export *
+  module * { export * }
+}

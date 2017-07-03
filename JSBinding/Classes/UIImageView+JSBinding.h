@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
-@interface UIImageView (JSBinding)
+@protocol UIImageViewJSBindingProtocol <NSObject,JSExport>
+
+- (void)setImage:(UIImage *)image;
+
+@end
+
+@interface UIImageView (JSBinding)<UIImageViewJSBindingProtocol>
 
 @end

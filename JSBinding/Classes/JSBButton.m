@@ -10,12 +10,16 @@
 
 @implementation JSBButton
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addTarget:self action:@selector(onTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return self;
 }
-*/
+
+- (void)onTouchUpInside:(JSBButton *)sender {
+    [self.context[@"onTouchUpInside"] callWithArguments:@[sender]];
+}
 
 @end

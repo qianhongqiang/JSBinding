@@ -1,0 +1,22 @@
+{
+  "name": "JSBinding",
+  "version": "0.1.0",
+  "summary": "A short description of JSBinding.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/qianhongqiang2012@163.com/JSBinding",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "qianhongqiang2012@163.com": "hongqiang.qhq@koubei.com"
+  },
+  "source": {
+    "git": "https://github.com/qianhongqiang2012@163.com/JSBinding.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "JSBinding/Classes/**/*"
+}

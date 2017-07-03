@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
-@interface JSBViewController : UIViewController
+@protocol JSBViewControllerExportToJS <NSObject,JSExport>
+
+@end
+
+@interface JSBViewController : UIViewController<JSBViewControllerExportToJS>
+
+- (instancetype)initWithJavascript:(NSString *)script;
 
 @end

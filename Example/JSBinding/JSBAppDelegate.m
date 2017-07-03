@@ -7,12 +7,20 @@
 //
 
 #import "JSBAppDelegate.h"
+#import <JSBinding/JSBViewController.h>
 
 @implementation JSBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    NSString *scriptPth = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"js"];
+    NSString *script = [NSString stringWithContentsOfFile:scriptPth encoding:NSUTF8StringEncoding error:nil];
+    
+    
+    self.window.rootViewController = [[JSBViewController alloc] initWithJavascript:script];
+    
     return YES;
 }
 

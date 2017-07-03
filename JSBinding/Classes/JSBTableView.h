@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
-@interface JSBTableView : UITableView
+@protocol JSBTableViewJSBindingProtocol <NSObject,JSExport>
+
+- (UITableViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
+
+@end
+
+@interface JSBTableView : UITableView<JSBTableViewJSBindingProtocol,UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, weak) JSContext *context;
 
 @end

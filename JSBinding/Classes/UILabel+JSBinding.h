@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
+@protocol UILabelJSBindingProtocol <NSObject,JSExport>
 
-@interface UILabel (JSBinding)
+-(void)setText:(NSString *)text;
+
+@end
+
+@interface UILabel (JSBinding)<UILabelJSBindingProtocol>
 
 @end

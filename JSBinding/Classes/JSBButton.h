@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface JSBButton : UIButton
+
+@property (nonatomic, weak) JSContext *context;
 
 @end

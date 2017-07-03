@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (JSBinding)
+#import <JavaScriptCore/JavaScriptCore.h>
+@protocol UIViewJSBindingProtocol <NSObject,JSExport>
+
+-(void)addSubview:(UIView *)view;
+
+-(void)setBackgroundColor:(UIColor *)backgroundColor;
+
+-(void)setFrame:(CGRect)rect;
+
+-(BOOL)resignFirstResponder;
+
+@end
+
+@interface UIView (JSBinding)<UIViewJSBindingProtocol>
 
 @end

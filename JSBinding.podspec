@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/qianhongqiang2012@163.com/JSBinding'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'qianhongqiang2012@163.com' => 'hongqiang.qhq@koubei.com' }
+  s.author           = { 'qianhongqiang2012@163.com' => 'qianhongqiang2012@163.com' }
   s.source           = { :git => 'https://github.com/qianhongqiang2012@163.com/JSBinding.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 

@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
-@interface NSIndexPath (JSBinding)
+@protocol NSIndexPathJSBindingProtocol <NSObject,JSExport>
+
+- (NSInteger)row;
+- (NSInteger)section;
+
+@end
+
+@interface NSIndexPath (JSBinding)<NSIndexPathJSBindingProtocol>
 
 @end

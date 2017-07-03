@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JavaScriptCore/JavaScriptCore.h>
+@protocol NSNotificationJSBindingProtocol <NSObject,JSExport>
 
-@interface NSNotification (JSBinding)
+-(NSDictionary *)userInfo;
+
+@end
+
+@interface NSNotification (JSBinding)<NSNotificationJSBindingProtocol>
 
 @end

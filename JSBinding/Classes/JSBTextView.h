@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
-@interface JSBTextView : UITextView
+@protocol JSBTextViewJSBindingProtocol <NSObject,JSExport>
+
+@end
+
+@interface JSBTextView : UITextView<JSBTextViewJSBindingProtocol,UITextViewDelegate>
+
+@property (nonatomic, weak) JSContext *context;
 
 @end

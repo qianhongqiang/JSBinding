@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JavaScriptCore/JavaScriptCore.h>
+@protocol NSValueJSBindingProtocol <NSObject,JSExport>
 
-@interface NSValue (JSBinding)
+-(CGRect)CGRectValue;
+
+@end
+
+@interface NSValue (JSBinding)<NSValueJSBindingProtocol>
 
 @end
