@@ -11,6 +11,10 @@
 
 @protocol JSBTextViewJSBindingProtocol <NSObject,JSExport>
 
+- (NSString *)text;
+
+- (void)setText:(NSString *)text;
+
 @end
 
 @interface JSBTextView : UITextView<JSBTextViewJSBindingProtocol,UITextViewDelegate>

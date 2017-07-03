@@ -10,6 +10,7 @@
 #import "JSBTableView.h"
 #import "JSBTextView.h"
 #import "JSBButton.h"
+#import "JSBUIEdgeInsets.h"
 
 #define arg(index) [JSContext currentArguments][index]
 #define intArg(index)  [[JSContext currentArguments][index] toInt32]
@@ -83,7 +84,10 @@
         };
         
         _JSContext[@"UIEdgeInsets"] = ^id{
-            return [JSValue valueWithObject:[NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(doubleArg(0), doubleArg(1), doubleArg(2), doubleArg(3))] inContext:weakContext];
+            JSBUIEdgeInsets *edgeO = [[JSBUIEdgeInsets alloc] init];
+            UIEdgeInsets zz = UIEdgeInsetsMake(doubleArg(0), doubleArg(1), doubleArg(2), doubleArg(3));
+            edgeO.edge = zz;
+            return edgeO;
         };
         
         _JSContext[@"animateWithDuration"] = ^{

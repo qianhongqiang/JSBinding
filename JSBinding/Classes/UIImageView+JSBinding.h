@@ -12,7 +12,6 @@
 @protocol UIImageViewJSBindingProtocol <NSObject,JSExport>
 
 - (void)setImage:(UIImage *)image;
-
 @end
 
 @interface UIImageView (JSBinding)<UIImageViewJSBindingProtocol>

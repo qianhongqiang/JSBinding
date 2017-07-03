@@ -1,13 +1,22 @@
 var screenBound = ScreenBounds()
-var table = UITableViewWithRect(screenBound)
+var table = UITableViewWithRect(CGRect(0,0,screenBound.width,screenBound.height - 46))
 
 var inputBar = UIView()
-inputBar.setFrame(CGRect(0,screenBound.height - 44,screenBound.width,44))
-inputBar.setBackgroundColor(UIColor(0.7,0.7,0.7,1))
+inputBar.setFrame(CGRect(0,screenBound.height - 46,screenBound.width,46))
+
+var seprator = UIView()
+seprator.setFrame(CGRect(0,0,screenBound.width,0.5))
+seprator.setBackgroundColor(UIColor(0.6,0.6,0.6,1))
+inputBar.addSubview(seprator)
+
+var backgroundImageView = UIImageView()
+backgroundImageView.setFrame(CGRect(47,9,screenBound.width - 36 * 2 - 38 - 9 * 2,29))
+backgroundImageView.setImage(UIImageNamed("icon_input_text_bg").resizableImageWithJSBCapInsetsResizingMode(UIEdgeInsets(15,80,15,80),1))
+inputBar.addSubview(backgroundImageView)
 
 var textView = UITextView()
-textView.setBackgroundColor(UIColor(0.5,0.2,0.8,1))
-textView.setFrame(CGRect(5,5,screenBound.width - 10,34))
+textView.setFrame(CGRect(52,14,screenBound.width - 36 * 2 - 38 - 9 * 2 - 10,19))
+inputBar.addSubview(textView)
 
 var button = UIButton()
 button.setBackgroundColor(UIColor(1,0.2,0.1,1))
@@ -24,10 +33,6 @@ function viewDidLoad()
     selfView().addSubview(table)
     
     selfView().addSubview(inputBar)
-    inputBar.addSubview(textView)
-    
-    selfView().addSubview(button)
-    selfView().addSubview(button2)
     
     addObserverForName("UIKeyboardWillShowNotification",function(noti)
                        {
@@ -97,9 +102,18 @@ function textViewDidBeginEditing(textView)
     log(textView)
 }
 
+function textView_shouldChangeTextInRange_replacementText(c_textView,range,text)
+{
+    if(text === "\n") {
+        data.push(c_textView.text())
+        table.reloadData()
+        c_textView.setText("")
+    }
+    return true
+}
+
 function scrollViewWillBeginDragging(scrollView)
 {
-    log("scrollViewWillBeginDragging")
     textView.resignFirstResponder()
 }
 

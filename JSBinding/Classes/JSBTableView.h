@@ -13,6 +13,8 @@
 
 - (UITableViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
 
+- (void)reloadData;
+
 @end
 
 @interface JSBTableView : UITableView<JSBTableViewJSBindingProtocol,UITableViewDelegate,UITableViewDataSource>
