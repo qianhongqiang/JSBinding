@@ -14,9 +14,15 @@ backgroundImageView.setFrame(CGRect(47,9,screenBound.width - 36 * 2 - 38 - 9 * 2
 backgroundImageView.setImage(UIImageNamed("icon_input_text_bg").resizableImageWithJSBCapInsetsResizingMode(UIEdgeInsets(15,80,15,80),1))
 inputBar.addSubview(backgroundImageView)
 
-var textView = UITextView()
-textView.setFrame(CGRect(52,14,screenBound.width - 36 * 2 - 38 - 9 * 2 - 10,19))
-inputBar.addSubview(textView)
+var inputTextView = UITextView()
+inputTextView.setFrame(CGRect(52,14,screenBound.width - 36 * 2 - 38 - 9 * 2 - 10,19))
+inputBar.addSubview(inputTextView)
+
+var sendButton = UIButton()
+sendButton.setFrame(CGRect(screenBound.width - 50,14,40,19))
+sendButton.setTitleForState("发送",0)
+sendButton.setTitleColorForState(UIColor(0,0,0,1),0)
+inputBar.addSubview(sendButton)
 
 var data = ["hellookdasskahdhksahdjhsakjhdkjsahdjksahkjdhsamxzbchasjkjdmsnxbjhzcjvdmcnxmbcxzmncmxzbcnadsjkhsahdjksad","world","test","dshdjshd"]
 
@@ -108,11 +114,11 @@ function textViewDidBeginEditing(textView)
 function textView_shouldChangeTextInRange_replacementText(c_textView,range,text)
 {
     if(text === "\n") {
-        data.push(c_textView.text)
+        data.push(c_textView.text())
         table.reloadData()
         
         scrollToBottomAnimated(true)
-        c_textView.setText("")
+        inputTextView.setText("")
     }
     return true
 }
@@ -124,5 +130,9 @@ function scrollViewWillBeginDragging(scrollView)
 
 function onTouchUpInside(sender)
 {
+    data.push(inputTextView.text())
+    table.reloadData()
     
+    scrollToBottomAnimated(true)
+    inputTextView.setText("")
 }

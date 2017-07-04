@@ -11,10 +11,12 @@
 
 @protocol JSBTextViewJSBindingProtocol <NSObject,JSExport>
 
-@property(nonatomic,copy) NSString *text;
 @property(nonatomic,strong) UIFont *font;
 @property(nonatomic,strong) UIColor *textColor;
 
+-(void)setText:(NSString *)text;
+
+- (NSString *)text;
 
 @end
 
