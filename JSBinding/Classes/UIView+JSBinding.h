@@ -11,13 +11,15 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 @protocol UIViewJSBindingProtocol <NSObject,JSExport>
 
--(void)addSubview:(UIView *)view;
+- (void)addSubview:(UIView *)view;
 
--(void)setBackgroundColor:(UIColor *)backgroundColor;
+- (void)setBackgroundColor:(UIColor *)backgroundColor;
 
--(void)setFrame:(CGRect)rect;
+- (void)setFrame:(CGRect)rect;
 
--(BOOL)resignFirstResponder;
+- (BOOL)resignFirstResponder;
+
+- (void)removeFromSuperview;
 
 @end
 

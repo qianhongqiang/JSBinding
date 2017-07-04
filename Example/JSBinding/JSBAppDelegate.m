@@ -8,6 +8,7 @@
 
 #import "JSBAppDelegate.h"
 #import <JSBinding/JSBViewController.h>
+#import <WebKit/WebKit.h>
 
 @implementation JSBAppDelegate
 
