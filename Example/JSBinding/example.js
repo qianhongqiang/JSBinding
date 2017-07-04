@@ -52,13 +52,6 @@ function viewDidAppear(animated)
 
 }
 
-function writeToScreen(message) {
-    var pre = document.createElement("p");
-    pre.style.wordWrap = "break-word";
-    pre.innerHTML = message;
-    output.appendChild(pre);
-}
-
 function tableView_numberOfRowsInSection(tableView,section)
 {
     return data.length
@@ -66,7 +59,6 @@ function tableView_numberOfRowsInSection(tableView,section)
 
 function tableView_heightForRowAtIndexPath(tableView,indexPath)
 {
-    log(indexPath.length)
     var height = sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height
     return height > 60 ? height : 60
 }
