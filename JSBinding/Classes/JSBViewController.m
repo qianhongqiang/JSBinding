@@ -117,14 +117,6 @@
             return [JSValue valueWithSize:sizeFit inContext:weakContext];
         };
         
-        _JSContext[@"animateWithDuration"] = ^{
-            NSArray *args = [JSContext currentArguments];
-            [UIView animateWithDuration:1 animations:^{
-                JSValue * a = [args firstObject];
-                [a callWithArguments:nil];
-            }];
-        };
-        
         _JSContext[@"addObserverForName"] = ^{
             NSArray *args = [JSContext currentArguments];
             [[NSNotificationCenter defaultCenter] addObserverForName:objectArg(0) object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {

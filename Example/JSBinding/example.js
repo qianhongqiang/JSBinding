@@ -132,12 +132,5 @@ function scrollViewWillBeginDragging(scrollView)
 
 function onTouchUpInside(sender)
 {
-    if(button == sender) {
-        animateWithDuration(function()
-                            {
-                            textView.setFrame(CGRect(200,250,200,50))
-                            });
-    }else {
-        log("not button")
-    }
+    
 }
