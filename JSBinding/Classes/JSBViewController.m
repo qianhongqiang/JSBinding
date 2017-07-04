@@ -11,6 +11,7 @@
 #import "JSBTextView.h"
 #import "JSBButton.h"
 #import "JSBUIEdgeInsets.h"
+#import "JSBSize.h"
 
 #define arg(index) [JSContext currentArguments][index]
 #define intArg(index)  [[JSContext currentArguments][index] toInt32]
@@ -79,8 +80,22 @@
             return [UIColor colorWithRed:doubleArg(0) green:doubleArg(1) blue:doubleArg(2) alpha:doubleArg(3)];
         };
         
+        _JSContext[@"UIFont"] = ^id {
+            return [UIFont systemFontOfSize:doubleArg(0)];
+        };
+        
         _JSContext[@"CGRect"] = ^id {
             return [JSValue valueWithRect:CGRectMake(doubleArg(0), doubleArg(1), doubleArg(2), doubleArg(3)) inContext:weakContext];
+        };
+        
+        _JSContext[@"CGSize"] = ^id {
+            JSBSize *size = [[JSBSize alloc] init];
+            size.size = CGSizeMake(doubleArg(0), doubleArg(1));
+            return size;
+        };
+        
+        _JSContext[@"CGSize"] = ^id {
+            return [JSValue valueWithSize:CGSizeMake(doubleArg(0), doubleArg(1)) inContext:weakContext];
         };
         
         _JSContext[@"NSIndexPath"] = ^id {
@@ -88,10 +103,18 @@
         };
         
         _JSContext[@"UIEdgeInsets"] = ^id{
-            JSBUIEdgeInsets *edgeO = [[JSBUIEdgeInsets alloc] init];
-            UIEdgeInsets zz = UIEdgeInsetsMake(doubleArg(0), doubleArg(1), doubleArg(2), doubleArg(3));
-            edgeO.edge = zz;
-            return edgeO;
+            JSBUIEdgeInsets *edge = [[JSBUIEdgeInsets alloc] init];
+            edge.edge = UIEdgeInsetsMake(doubleArg(0), doubleArg(1), doubleArg(2), doubleArg(3));
+            return edge;
+        };
+        
+        _JSContext[@"sizeWithFontMaxSize"] = ^id{
+            NSDictionary *attrs = @{NSFontAttributeName : objectArg(1)};
+            NSString *s = [NSString stringWithFormat:@"%@",objectArg(0)];
+            JSValue *value = [JSContext currentArguments][2];
+            CGSize sizeFit = [s boundingRectWithSize:[value toSize] options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+            
+            return [JSValue valueWithSize:sizeFit inContext:weakContext];
         };
         
         _JSContext[@"animateWithDuration"] = ^{

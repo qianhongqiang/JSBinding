@@ -18,7 +18,7 @@ var textView = UITextView()
 textView.setFrame(CGRect(52,14,screenBound.width - 36 * 2 - 38 - 9 * 2 - 10,19))
 inputBar.addSubview(textView)
 
-var data = ["hello","world","test","dshdjshd"]
+var data = ["hellookdasskahdhksahdjhsakjhdkjsahdjksahkjdhsamxzbchasjkjdmsnxbjhzcjvdmcnxmbcxzmncmxzbcnadsjkhsahdjksad","world","test","dshdjshd"]
 
 function viewDidLoad()
 {
@@ -58,7 +58,8 @@ function tableView_numberOfRowsInSection(tableView,section)
 
 function tableView_heightForRowAtIndexPath(tableView,indexPath)
 {
-    return 80
+    var height = sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height
+    return height > 60 ? height : 60
 }
 
 function tableView_cellForRowAtIndexPath(tableView,indexPath)
@@ -68,7 +69,8 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
         cell = UITableViewCell(0,"idf")
         
         var titleLabel = UILabel()
-        titleLabel.setFrame(CGRect(70,0,200,44))
+        titleLabel.setNumberOfLines(0)
+        titleLabel.setFont(UIFont(14))
         cell.addSubview(titleLabel)
         cell.setPropertyForKey(titleLabel,"titleLableKey")
         
@@ -81,7 +83,7 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
     
     var titleLabel = cell.getPropertyForKey("titleLableKey")
     titleLabel.setText(data[indexPath.row()])
-    titleLabel.setBackgroundColor(UIColor(0.3,0.7,0.9,1))
+    titleLabel.setFrame(CGRect(70,0,200,sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height))
     
     var userImageView = cell.getPropertyForKey("userImageKey")
     userImageView.setImage(UIImageNamed("comment_recommend"))

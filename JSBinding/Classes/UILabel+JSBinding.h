@@ -10,7 +10,11 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 @protocol UILabelJSBindingProtocol <NSObject,JSExport>
 
--(void)setText:(NSString *)text;
+- (void)setText:(NSString *)text;
+
+- (void)setNumberOfLines:(NSInteger)numberOfLines;
+
+- (void)setFont:(UIFont *)font;
 
 @end
 
