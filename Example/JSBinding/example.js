@@ -66,6 +66,7 @@ function tableView_numberOfRowsInSection(tableView,section)
 
 function tableView_heightForRowAtIndexPath(tableView,indexPath)
 {
+    log(indexPath.length)
     var height = sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height
     return height > 60 ? height : 60
 }
@@ -115,7 +116,7 @@ function textViewDidBeginEditing(textView)
 function textView_shouldChangeTextInRange_replacementText(c_textView,range,text)
 {
     if(text === "\n") {
-        data.push(c_textView.text())
+        data.push(c_textView.text)
         table.reloadData()
         
         scrollToBottomAnimated(true)
