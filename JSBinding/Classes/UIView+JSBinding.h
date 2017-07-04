@@ -21,8 +21,12 @@
 
 - (void)removeFromSuperview;
 
++ (void)jsb_animateWithDuration:(NSTimeInterval)duration animations:(JSValue *)animation;
+
 @end
 
 @interface UIView (JSBinding)<UIViewJSBindingProtocol>
+
++ (void)jsb_animateWithDuration:(NSTimeInterval)duration animations:(JSValue *)animation;
 
 @end

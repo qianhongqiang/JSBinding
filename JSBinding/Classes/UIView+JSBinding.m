@@ -10,4 +10,10 @@
 
 @implementation UIView (JSBinding)
 
++(void)jsb_animateWithDuration:(NSTimeInterval)duration animations:(JSValue *)animations {
+    [self animateWithDuration:duration animations:^{
+        [animations callWithArguments:nil];
+    }];
+}
+
 @end

@@ -29,20 +29,20 @@ function viewDidLoad()
     addObserverForName("UIKeyboardWillShowNotification",function(noti)
                        {
                        var keyBoardHeight = noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height
-                       animateWithDuration(function()
-                                           {
-                                           inputBar.setFrame(CGRect(0,screenBound.height - 46 - keyBoardHeight,screenBound.width,46))
-                                           table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46 - keyBoardHeight));
-                                           });
+                       UIViewClass.jsb_animateWithDurationAnimations(1,function()
+                                                              {
+                                                              inputBar.setFrame(CGRect(0,screenBound.height - 46 - keyBoardHeight,screenBound.width,46))
+                                                              table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46 - keyBoardHeight));
+                                                              })
                        })
     addObserverForName("UIKeyboardWillHideNotification",function(noti)
                        {
                        var keyBoardHeight = noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height
-                       animateWithDuration(function()
-                                           {
-                                           inputBar.setFrame(CGRect(0,screenBound.height - 46,screenBound.width,46))
-                                           table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46));
-                                           });
+                       UIViewClass.jsb_animateWithDurationAnimations(function()
+                                                               {
+                                                               inputBar.setFrame(CGRect(0,screenBound.height - 46,screenBound.width,46))
+                                                               table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46));
+                                                               });
                        })
     
 }

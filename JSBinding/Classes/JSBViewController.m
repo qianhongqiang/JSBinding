@@ -137,6 +137,8 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:objectArg(0) object:nil];
         };
         
+        _JSContext[@"UIViewClass"] = NSClassFromString(@"UIView");
+        
         [_JSContext evaluateScript:script];
     }
     return self;
