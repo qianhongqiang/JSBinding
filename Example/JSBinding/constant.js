@@ -1,1 +1,0 @@
-var UIControlEvent = 1;

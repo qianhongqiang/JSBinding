@@ -44,11 +44,19 @@ function viewDidLoad()
                                            table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46));
                                            });
                        })
+    
 }
 
 function viewDidAppear(animated)
 {
-    
+
+}
+
+function writeToScreen(message) {
+    var pre = document.createElement("p");
+    pre.style.wordWrap = "break-word";
+    pre.innerHTML = message;
+    output.appendChild(pre);
 }
 
 function tableView_numberOfRowsInSection(tableView,section)
