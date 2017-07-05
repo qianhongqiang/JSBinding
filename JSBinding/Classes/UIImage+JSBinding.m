@@ -14,4 +14,12 @@
     return [self resizableImageWithCapInsets:capInsets.edge resizingMode:resizingMode];
 }
 
+- (UIImage *)resize
+{
+
+    CGFloat imageW = self.size.width * 0.5;
+    CGFloat imageH = self.size.height * 0.8;
+    return [self resizableImageWithCapInsets:UIEdgeInsetsMake(imageH, imageW, imageH, imageW) resizingMode:UIImageResizingModeTile];
+}
+
 @end

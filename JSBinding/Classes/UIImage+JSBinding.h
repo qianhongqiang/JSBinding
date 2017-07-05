@@ -14,10 +14,14 @@
 
 - (UIImage *)resizableImageWithJSBCapInsets:(JSBUIEdgeInsets *)capInsets resizingMode:(UIImageResizingMode)resizingMode;
 
+- (UIImage *)resize;
+
 @end
 
 @interface UIImage (JSBinding)<UIImageJSBindingProtocol>
 
 - (UIImage *)resizableImageWithJSBCapInsets:(JSBUIEdgeInsets *)capInsets resizingMode:(UIImageResizingMode)resizingMode;
+
+- (UIImage *)resize;
 
 @end

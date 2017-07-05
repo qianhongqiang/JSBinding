@@ -15,7 +15,6 @@
 @property(nonatomic,strong) UIColor *textColor;
 
 -(void)setText:(NSString *)text;
-
 - (NSString *)text;
 
 @end

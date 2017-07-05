@@ -1,5 +1,6 @@
 var screenBound = ScreenBounds()
 var table = UITableViewWithRect(CGRect(0,0,screenBound.width,screenBound.height - 46))
+table.separatorStyle = 0
 
 var inputBar = UIView()
 inputBar.setFrame(CGRect(0,screenBound.height - 46,screenBound.width,46))
@@ -65,7 +66,7 @@ function tableView_numberOfRowsInSection(tableView,section)
 
 function tableView_heightForRowAtIndexPath(tableView,indexPath)
 {
-    var height = sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height
+    var height = sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height + 40
     return height > 60 ? height : 60
 }
 
@@ -74,6 +75,10 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
     var cell = tableView.dequeueReusableCellWithIdentifier("idf")
     if (!cell) {
         cell = UITableViewCell(0,"idf")
+        cell.se
+        
+        var bubbleImageView = UIImageView()
+        cell.addSubview(bubbleImageView)
         
         var titleLabel = UILabel()
         titleLabel.setNumberOfLines(0)
@@ -88,9 +93,12 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
         cell.setPropertyForKey(userImageView,"userImageKey")
     }
     
+    bubbleImageView.setFrame(CGRect(70,0,220,sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height + 30))
+    bubbleImageView.setImage(UIImageNamed("message_bubble_self").resize())
+    
     var titleLabel = cell.getPropertyForKey("titleLableKey")
     titleLabel.setText(data[indexPath.row()])
-    titleLabel.setFrame(CGRect(70,0,200,sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height))
+    titleLabel.setFrame(CGRect(80,15,200,sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height))
     
     var userImageView = cell.getPropertyForKey("userImageKey")
     userImageView.setImage(UIImageNamed("comment_recommend"))

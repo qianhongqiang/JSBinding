@@ -22,6 +22,7 @@
 #import "UIImage+JSBinding.h"
 #import "UIImageView+JSBinding.h"
 #import "UILabel+JSBinding.h"
+#import "UITableViewCell+JSBinding.h"
 #import "UIView+JSBinding.h"
 #import "UIView+Properties.h"
 

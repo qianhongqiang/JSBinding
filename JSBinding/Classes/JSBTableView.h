@@ -49,6 +49,8 @@
 - (void)reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
 - (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
 
+@property (nonatomic) UITableViewCellSeparatorStyle separatorStyle;
+
 @end
 
 @interface JSBTableView : UITableView<JSBTableViewJSBindingProtocol,UITableViewDelegate,UITableViewDataSource>
