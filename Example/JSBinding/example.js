@@ -75,7 +75,6 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
     var cell = tableView.dequeueReusableCellWithIdentifier("idf")
     if (!cell) {
         cell = UITableViewCell(0,"idf")
-        cell.se
         
         var bubbleImageView = UIImageView()
         cell.addSubview(bubbleImageView)
