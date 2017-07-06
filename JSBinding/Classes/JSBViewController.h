@@ -11,6 +11,8 @@
 
 @protocol JSBViewControllerExportToJS <NSObject,JSExport>
 
+@property(nonatomic,strong) UIView *view;
+
 @end
 
 @interface JSBViewController : UIViewController<JSBViewControllerExportToJS>

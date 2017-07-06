@@ -131,6 +131,12 @@
         
         _JSContext[@"UIViewClass"] = NSClassFromString(@"UIView");
         
+        __weak typeof(self) weakSelf = self;
+        _JSContext[@"self"] = ^id{
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            return [JSValue valueWithObject:strongSelf inContext:weakContext];
+        };
+        
         [_JSContext evaluateScript:script];
     }
     return self;

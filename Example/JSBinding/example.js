@@ -1,3 +1,5 @@
+var self = self()
+
 var screenBound = ScreenBounds()
 var table = UITableViewWithRect(CGRect(0,0,screenBound.width,screenBound.height - 46))
 table.separatorStyle = 0
@@ -29,9 +31,9 @@ var data = ["hellookdasskahdhksahdjhsakjhdkjsahdjksahkjdhsamxzbchasjkjdmsnxbjhzc
 
 function viewDidLoad()
 {
-    selfView().addSubview(table)
+    self.view.addSubview(table)
     
-    selfView().addSubview(inputBar)
+    self.view.addSubview(inputBar)
     
     addObserverForName("UIKeyboardWillShowNotification",function(noti)
                        {
