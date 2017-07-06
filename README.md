@@ -9,6 +9,14 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+Use JSBViewController instead of UIViewController,
+
+```
+- (instancetype)initWithJavascript:(NSString *)script;
+```
+
+script is like example.js
+
 ## Requirements
 
 ## Installation
