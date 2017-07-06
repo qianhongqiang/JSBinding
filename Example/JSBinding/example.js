@@ -1,5 +1,3 @@
-var self = self()
-
 var screenBound = ScreenBounds()
 var table = UITableViewWithRect(CGRect(0,0,screenBound.width,screenBound.height - 46))
 table.separatorStyle = 0

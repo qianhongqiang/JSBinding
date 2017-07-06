@@ -31,6 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'JSBinding/Classes/**/*'
+  s.resources    = "JSBinding/Assets/*.js"
   
   # s.resource_bundles = {
   #   'JSBinding' => ['JSBinding/Assets/*.png']

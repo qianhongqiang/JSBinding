@@ -137,6 +137,17 @@
             return [JSValue valueWithObject:strongSelf inContext:weakContext];
         };
         
+        NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"JSBinding" ofType:@"js"];
+        NSAssert(path, @"can't find JSPatch.js");
+        NSString *jsCore = [[NSString alloc] initWithData:[[NSFileManager defaultManager] contentsAtPath:path] encoding:NSUTF8StringEncoding];
+        
+        if ([_JSContext respondsToSelector:@selector(evaluateScript:withSourceURL:)]) {
+            [_JSContext evaluateScript:jsCore withSourceURL:[NSURL URLWithString:@"JSBinding.js"]];   // withSourceURL指定的JSBinding.js是指jsCore在js调试器下的文件名
+        } else {
+            [_JSContext evaluateScript:jsCore];
+        }
+
+        
         [_JSContext evaluateScript:script];
     }
     return self;
