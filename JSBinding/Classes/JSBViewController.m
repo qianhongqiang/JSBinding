@@ -130,6 +130,7 @@
         };
         
         _JSContext[@"UIViewClass"] = NSClassFromString(@"UIView");
+        _JSContext[@"NSUserDefaultsClass"] = NSClassFromString(@"NSUserDefaults");
         
         __weak typeof(self) weakSelf = self;
         _JSContext[@"self"] = ^id{

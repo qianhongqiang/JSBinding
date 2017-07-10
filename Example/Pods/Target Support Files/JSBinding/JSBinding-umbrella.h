@@ -18,6 +18,7 @@
 #import "JSBViewController.h"
 #import "NSIndexPath+JSBinding.h"
 #import "NSNotification+JSBinding.h"
+#import "NSUserDefaults+JSBinding.h"
 #import "NSValue+JSBinding.h"
 #import "UIImage+JSBinding.h"
 #import "UIImageView+JSBinding.h"

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import <JavaScriptCore/JavaScriptCore.h>
 @protocol UIViewJSBindingProtocol <NSObject,JSExport>
 
