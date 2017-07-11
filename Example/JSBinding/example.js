@@ -12,7 +12,7 @@ inputBar.addSubview(seprator)
 
 var backgroundImageView = Class("UIImageView").create()
 backgroundImageView.setFrame(CGRect(47,9,screenBound.width - 36 * 2 - 38 - 9 * 2,29))
-backgroundImageView.setImage(UIImageNamed("icon_input_text_bg").resizableImageWithJSBCapInsetsResizingMode(UIEdgeInsets(15,80,15,80),1))
+backgroundImageView.setImage(UIImage.imageNamed("icon_input_text_bg").resizableImageWithJSBCapInsetsResizingMode(UIEdgeInsets(15,80,15,80),1))
 inputBar.addSubview(backgroundImageView)
 
 var inputTextView = UITextView()
@@ -95,14 +95,14 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
     
     var bubbleImageView = cell.getPropertyForKey("bubbleImageKey")
     bubbleImageView.setFrame(CGRect(70,0,220,sizeWithFontMaxSize(data[indexPath.row()],UIFont.systemFontOfSize(14),CGSize(200,1000)).height + 30))
-    bubbleImageView.setImage(UIImageNamed("message_bubble_self").resize())
+    bubbleImageView.setImage(UIImage.imageNamed("message_bubble_self").resize())
 
     var titleLabel = cell.getPropertyForKey("titleLableKey")
     titleLabel.setText(data[indexPath.row()])
     titleLabel.setFrame(CGRect(80,15,200,sizeWithFontMaxSize(data[indexPath.row()],UIFont.systemFontOfSize(14),CGSize(200,1000)).height))
 
     var userImageView = cell.getPropertyForKey("userImageKey")
-    userImageView.setImage(UIImageNamed("comment_recommend"))
+    userImageView.setImage(UIImage.imageNamed("comment_recommend"))
     
     return cell
 }

@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JavaScriptCore/JavaScriptCore.h>
+@protocol NSNotificationCenterJSBindingProtocol <NSObject,JSExport>
 
-@interface NSNotificationCenter (JSBinding)
++ (NSNotificationCenter *)defaultCenter;
+
+@end
+
+@interface NSNotificationCenter (JSBinding)<NSNotificationCenterJSBindingProtocol>
 
 @end

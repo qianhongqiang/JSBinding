@@ -51,10 +51,6 @@
             return [[UITableViewCell alloc] initWithStyle:intArg(0) reuseIdentifier:objectArg(1)];
         };
         
-        _JSContext[@"UIImageNamed"] = ^id {
-            return [UIImage imageNamed:objectArg(0)];
-        };
-        
         _JSContext[@"UIButton"] = ^id {
             JSBButton *btn =[[JSBButton alloc] init];
             btn.context = weakContext;
@@ -122,6 +118,7 @@
         CLASSBINDING(@"UIView")
         CLASSBINDING(@"UIColor")
         CLASSBINDING(@"UIFont")
+        CLASSBINDING(@"UIImage")
         
         __weak typeof(self) weakSelf = self;
         _JSContext[@"self"] = ^id{
