@@ -7,7 +7,7 @@ inputBar.setFrame(CGRect(0,screenBound.height - 46,screenBound.width,46))
 
 var seprator = Class("UIView").create()
 seprator.setFrame(CGRect(0,0,screenBound.width,0.5))
-seprator.setBackgroundColor(UIColor(0.6,0.6,0.6,1))
+seprator.setBackgroundColor(UIColor.colorWithRedGreenBlueAlpha(0.6,0.6,0.6,1))
 inputBar.addSubview(seprator)
 
 var backgroundImageView = Class("UIImageView").create()
@@ -22,7 +22,7 @@ inputBar.addSubview(inputTextView)
 var sendButton = UIButton()
 sendButton.setFrame(CGRect(screenBound.width - 50,14,40,19))
 sendButton.setTitleForState("发送",0)
-sendButton.setTitleColorForState(UIColor(0,0,0,1),0)
+sendButton.setTitleColorForState(UIColor.colorWithRedGreenBlueAlpha(0,0,0,1),0)
 inputBar.addSubview(sendButton)
 
 var data = ["hellookdasskahdhksahdjhsakjhdkjsahdjksahkjdhsamxzbchasjkjdmsnxbjhzcjvdmcnxmbcxzmncmxzbcnadsjkhsahdjksad","world","test","dshdjshd"]

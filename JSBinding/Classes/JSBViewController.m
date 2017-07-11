@@ -20,6 +20,8 @@
 #define rectArg(index) [[JSContext currentArguments][index] toRect]
 #define objectArg(index)  [[JSContext currentArguments][index] toObject]
 
+#define CLASSBINDING(className) _JSContext[className] = NSClassFromString(className);
+
 @implementation JSBViewController
 {
     JSContext *_JSContext;
@@ -63,10 +65,6 @@
             JSBTextView *textView = [[JSBTextView alloc] init];
             textView.context = weakContext;
             return textView;
-        };
-        
-        _JSContext[@"UIColor"] = ^id {
-            return [UIColor colorWithRed:doubleArg(0) green:doubleArg(1) blue:doubleArg(2) alpha:doubleArg(3)];
         };
         
         _JSContext[@"UIFont"] = ^id {
@@ -126,6 +124,7 @@
         
         _JSContext[@"UIViewClass"] = NSClassFromString(@"UIView");
         _JSContext[@"NSUserDefaultsClass"] = NSClassFromString(@"NSUserDefaults");
+        CLASSBINDING(@"UIColor")
         
         __weak typeof(self) weakSelf = self;
         _JSContext[@"self"] = ^id{
