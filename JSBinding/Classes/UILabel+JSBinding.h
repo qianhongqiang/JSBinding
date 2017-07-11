@@ -12,9 +12,11 @@
 
 - (void)setText:(NSString *)text;
 
-- (void)setNumberOfLines:(NSInteger)numberOfLines;
-
 - (void)setFont:(UIFont *)font;
+
+@property(nonatomic,strong) UIColor *textColor;
+@property(nonatomic) NSInteger numberOfLines;
+
 
 @end
 

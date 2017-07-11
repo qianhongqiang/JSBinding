@@ -80,7 +80,7 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
         cell.addSubview(bubbleImageView)
         
         var titleLabel = UILabel()
-        titleLabel.setNumberOfLines(0)
+        titleLabel.numberOfLines = 0
         titleLabel.setFont(UIFont(14))
         cell.addSubview(titleLabel)
         cell.setPropertyForKey(titleLabel,"titleLableKey")
