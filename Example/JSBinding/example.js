@@ -76,16 +76,16 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
     if (!cell) {
         cell = UITableViewCell(0,"idf")
         
-        var bubbleImageView = UIImageView()
+        var bubbleImageView = Class("UIImageView").create()
         cell.addSubview(bubbleImageView)
         
-        var titleLabel = UILabel()
+        var titleLabel = Class("UILabel").create()
         titleLabel.numberOfLines = 0
         titleLabel.setFont(UIFont(14))
         cell.addSubview(titleLabel)
         cell.setPropertyForKey(titleLabel,"titleLableKey")
         
-        var userImageView = UIImageView()
+        var userImageView = Class("UIImageView").create()
         userImageView.setFrame(CGRect(20,0,44,44))
         
         cell.addSubview(userImageView)
