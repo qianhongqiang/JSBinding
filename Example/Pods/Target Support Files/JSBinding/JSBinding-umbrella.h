@@ -11,6 +11,7 @@
 #endif
 
 #import "JSBButton.h"
+#import "JSBClass.h"
 #import "JSBSize.h"
 #import "JSBTableView.h"
 #import "JSBTextView.h"

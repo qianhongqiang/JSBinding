@@ -2,15 +2,15 @@ var screenBound = ScreenBounds()
 var table = UITableViewWithRect(CGRect(0,0,screenBound.width,screenBound.height - 46))
 table.separatorStyle = 0
 
-var inputBar = UIView()
+var inputBar = Class("UIView").create()
 inputBar.setFrame(CGRect(0,screenBound.height - 46,screenBound.width,46))
 
-var seprator = UIView()
+var seprator = Class("UIView").create()
 seprator.setFrame(CGRect(0,0,screenBound.width,0.5))
 seprator.setBackgroundColor(UIColor(0.6,0.6,0.6,1))
 inputBar.addSubview(seprator)
 
-var backgroundImageView = UIImageView()
+var backgroundImageView = Class("UIImageView").create()
 backgroundImageView.setFrame(CGRect(47,9,screenBound.width - 36 * 2 - 38 - 9 * 2,29))
 backgroundImageView.setImage(UIImageNamed("icon_input_text_bg").resizableImageWithJSBCapInsetsResizingMode(UIEdgeInsets(15,80,15,80),1))
 inputBar.addSubview(backgroundImageView)

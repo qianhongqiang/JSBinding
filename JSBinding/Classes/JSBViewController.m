@@ -12,6 +12,7 @@
 #import "JSBButton.h"
 #import "JSBUIEdgeInsets.h"
 #import "JSBSize.h"
+#import "JSBClass.h"
 
 #define arg(index) [JSContext currentArguments][index]
 #define intArg(index)  [[JSContext currentArguments][index] toInt32]
@@ -44,20 +45,8 @@
             return [JSValue valueWithRect:[[UIScreen mainScreen] bounds] inContext:weakContext];
         };
         
-        _JSContext[@"UIView"] = ^id {
-            return [[UIView alloc] init];
-        };
-        
         _JSContext[@"UITableViewCell"] = ^id {
             return [[UITableViewCell alloc] initWithStyle:intArg(0) reuseIdentifier:objectArg(1)];
-        };
-        
-        _JSContext[@"UILabel"] = ^id {
-            return [[UILabel alloc] init];
-        };
-        
-        _JSContext[@"UIImageView"] = ^id {
-            return [[UIImageView alloc] init];
         };
         
         _JSContext[@"UIImageNamed"] = ^id {
@@ -127,6 +116,12 @@
         
         _JSContext[@"postNotification"] = ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:objectArg(0) object:nil];
+        };
+        
+        _JSContext[@"Class"] = ^{
+            JSBClass *class = [[JSBClass alloc] init];
+            class.innerClass = NSClassFromString(objectArg(0));
+            return class;
         };
         
         _JSContext[@"UIViewClass"] = NSClassFromString(@"UIView");
