@@ -16,6 +16,8 @@
 
 - (UIImage *)resize;
 
++ (UIImage *)imageNamed:(NSString *)name;
+
 @end
 
 @interface UIImage (JSBinding)<UIImageJSBindingProtocol>

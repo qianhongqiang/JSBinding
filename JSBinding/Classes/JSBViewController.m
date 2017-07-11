@@ -118,7 +118,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:objectArg(0) object:nil];
         };
         
-        _JSContext[@"Class"] = ^{
+        _JSContext[@"Class"] = ^id{
             JSBClass *class = [[JSBClass alloc] init];
             class.innerClass = NSClassFromString(objectArg(0));
             return class;

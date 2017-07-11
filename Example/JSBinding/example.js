@@ -36,7 +36,7 @@ function viewDidLoad()
     addObserverForName("UIKeyboardWillShowNotification",function(noti)
                        {
                        var keyBoardHeight = noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height
-                       UIViewClass.jsb_animateWithDurationAnimations(1,function()
+                       UIView.jsb_animateWithDurationAnimations(1,function()
                                                               {
                                                               inputBar.setFrame(CGRect(0,screenBound.height - 46 - keyBoardHeight,screenBound.width,46))
                                                               table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46 - keyBoardHeight));
@@ -45,7 +45,7 @@ function viewDidLoad()
     addObserverForName("UIKeyboardWillHideNotification",function(noti)
                        {
                        var keyBoardHeight = noti.userInfo().UIKeyboardFrameEndUserInfoKey.CGRectValue().height
-                       UIViewClass.jsb_animateWithDurationAnimations(function()
+                       UIView.jsb_animateWithDurationAnimations(function()
                                                                {
                                                                inputBar.setFrame(CGRect(0,screenBound.height - 46,screenBound.width,46))
                                                                table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46));
@@ -78,6 +78,7 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
         
         var bubbleImageView = Class("UIImageView").create()
         cell.addSubview(bubbleImageView)
+        cell.setPropertyForKey(bubbleImageView,"bubbleImageKey")
         
         var titleLabel = Class("UILabel").create()
         titleLabel.numberOfLines = 0
@@ -92,13 +93,14 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
         cell.setPropertyForKey(userImageView,"userImageKey")
     }
     
+    var bubbleImageView = cell.getPropertyForKey("bubbleImageKey")
     bubbleImageView.setFrame(CGRect(70,0,220,sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height + 30))
     bubbleImageView.setImage(UIImageNamed("message_bubble_self").resize())
-    
+
     var titleLabel = cell.getPropertyForKey("titleLableKey")
     titleLabel.setText(data[indexPath.row()])
     titleLabel.setFrame(CGRect(80,15,200,sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height))
-    
+
     var userImageView = cell.getPropertyForKey("userImageKey")
     userImageView.setImage(UIImageNamed("comment_recommend"))
     
