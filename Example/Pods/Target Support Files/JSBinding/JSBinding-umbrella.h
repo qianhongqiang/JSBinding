@@ -19,15 +19,19 @@
 #import "JSBViewController.h"
 #import "NSIndexPath+JSBinding.h"
 #import "NSNotification+JSBinding.h"
+#import "NSNotificationCenter+JSBinding.h"
 #import "NSUserDefaults+JSBinding.h"
 #import "NSValue+JSBinding.h"
 #import "UIColor+JSBingding.h"
+#import "UIFont+JSBinding.h"
 #import "UIImage+JSBinding.h"
 #import "UIImageView+JSBinding.h"
 #import "UILabel+JSBinding.h"
+#import "UISlider+JSBinding.h"
 #import "UITableViewCell+JSBinding.h"
 #import "UIView+JSBinding.h"
 #import "UIView+Properties.h"
+#import "UIWebView+JSBinding.h"
 
 FOUNDATION_EXPORT double JSBindingVersionNumber;
 FOUNDATION_EXPORT const unsigned char JSBindingVersionString[];

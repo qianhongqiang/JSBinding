@@ -67,10 +67,6 @@
             return textView;
         };
         
-        _JSContext[@"UIFont"] = ^id {
-            return [UIFont systemFontOfSize:doubleArg(0)];
-        };
-        
         _JSContext[@"CGRect"] = ^id {
             return [JSValue valueWithRect:CGRectMake(doubleArg(0), doubleArg(1), doubleArg(2), doubleArg(3)) inContext:weakContext];
         };
@@ -122,9 +118,10 @@
             return class;
         };
         
-        _JSContext[@"UIViewClass"] = NSClassFromString(@"UIView");
-        _JSContext[@"NSUserDefaultsClass"] = NSClassFromString(@"NSUserDefaults");
+        CLASSBINDING(@"NSUserDefaults")
+        CLASSBINDING(@"UIView")
         CLASSBINDING(@"UIColor")
+        CLASSBINDING(@"UIFont")
         
         __weak typeof(self) weakSelf = self;
         _JSContext[@"self"] = ^id{

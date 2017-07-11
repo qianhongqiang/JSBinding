@@ -66,7 +66,7 @@ function tableView_numberOfRowsInSection(tableView,section)
 
 function tableView_heightForRowAtIndexPath(tableView,indexPath)
 {
-    var height = sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height + 40
+    var height = sizeWithFontMaxSize(data[indexPath.row()],UIFont.systemFontOfSize(14),CGSize(200,1000)).height + 40
     return height > 60 ? height : 60
 }
 
@@ -82,7 +82,7 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
         
         var titleLabel = Class("UILabel").create()
         titleLabel.numberOfLines = 0
-        titleLabel.setFont(UIFont(14))
+        titleLabel.setFont(UIFont.systemFontOfSize(14))
         cell.addSubview(titleLabel)
         cell.setPropertyForKey(titleLabel,"titleLableKey")
         
@@ -94,12 +94,12 @@ function tableView_cellForRowAtIndexPath(tableView,indexPath)
     }
     
     var bubbleImageView = cell.getPropertyForKey("bubbleImageKey")
-    bubbleImageView.setFrame(CGRect(70,0,220,sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height + 30))
+    bubbleImageView.setFrame(CGRect(70,0,220,sizeWithFontMaxSize(data[indexPath.row()],UIFont.systemFontOfSize(14),CGSize(200,1000)).height + 30))
     bubbleImageView.setImage(UIImageNamed("message_bubble_self").resize())
 
     var titleLabel = cell.getPropertyForKey("titleLableKey")
     titleLabel.setText(data[indexPath.row()])
-    titleLabel.setFrame(CGRect(80,15,200,sizeWithFontMaxSize(data[indexPath.row()],UIFont(14),CGSize(200,1000)).height))
+    titleLabel.setFrame(CGRect(80,15,200,sizeWithFontMaxSize(data[indexPath.row()],UIFont.systemFontOfSize(14),CGSize(200,1000)).height))
 
     var userImageView = cell.getPropertyForKey("userImageKey")
     userImageView.setImage(UIImageNamed("comment_recommend"))
