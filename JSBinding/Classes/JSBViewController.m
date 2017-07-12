@@ -7,8 +7,6 @@
 //
 
 #import "JSBViewController.h"
-#import "JSBTableView.h"
-#import "JSBTextView.h"
 #import "JSBButton.h"
 #import "JSBUIEdgeInsets.h"
 #import "JSBSize.h"
@@ -37,11 +35,6 @@
         };
         
         __weak typeof (_JSContext) weakContext = _JSContext;
-        _JSContext[@"UITableViewWithRect"] = ^id{
-            JSBTableView *tableView = [[JSBTableView alloc] initWithFrame:rectArg(0)];
-            tableView.context = weakContext;
-            return tableView;
-        };
         
         _JSContext[@"ScreenBounds"] = ^id {
             return [JSValue valueWithRect:[[UIScreen mainScreen] bounds] inContext:weakContext];
@@ -55,12 +48,6 @@
             JSBButton *btn =[[JSBButton alloc] init];
             btn.context = weakContext;
             return btn;
-        };
-        
-        _JSContext[@"UITextView"] = ^id {
-            JSBTextView *textView = [[JSBTextView alloc] init];
-            textView.context = weakContext;
-            return textView;
         };
         
         _JSContext[@"CGRect"] = ^id {
@@ -119,6 +106,8 @@
         CLASSBINDING(@"UIColor")
         CLASSBINDING(@"UIFont")
         CLASSBINDING(@"UIImage")
+        CLASSBINDING(@"UITableView")
+        CLASSBINDING(@"UITextView")
         
         __weak typeof(self) weakSelf = self;
         _JSContext[@"self"] = ^id{
@@ -144,12 +133,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    __weak typeof (self) weakSelf = self;
-    _JSContext[@"selfView"] = ^id{
-        __strong typeof (weakSelf) self = weakSelf;
-        return self.view;
-    };
     
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
@@ -164,6 +147,97 @@
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+//- (BOOL)respondsToSelector:(SEL)aSelector {
+//    if (_JSContext) {
+//        NSString *sel = NSStringFromSelector(aSelector);
+//        NSString *tranSel = [sel stringByReplacingOccurrencesOfString:@":" withString:@"_"];
+//        NSString *delSel = [tranSel substringWithRange:NSMakeRange(0, tranSel.length - 1)];
+//        
+//        JSValue *value = _JSContext[delSel];
+//        if ([value isUndefined]) {
+//            return [super respondsToSelector:aSelector];
+//        } else {
+//            return YES;
+//        }
+//    }
+//    BOOL superRet = [super respondsToSelector:aSelector];
+//    return superRet;
+//}
+
+#pragma mark - UITableView
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [_JSContext[@"scrollViewWillBeginDragging"] callWithArguments:@[scrollView]];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [[_JSContext[@"tableView_numberOfRowsInSection"] callWithArguments:@[tableView,@(section)]] toInt32];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[_JSContext[@"tableView_cellForRowAtIndexPath"] callWithArguments:@[tableView,indexPath]] toObject];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[_JSContext[@"tableView_heightForRowAtIndexPath"] callWithArguments:@[tableView,indexPath]] toDouble];
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    JSValue *value = _JSContext[@"textViewShouldBeginEditing"];
+    if ([value isUndefined]) {
+        return true;
+    }
+    return [[value callWithArguments:@[textView]] toBool];
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    JSValue *value = _JSContext[@"textViewShouldEndEditing"];
+    if ([value isUndefined]) {
+        return true;
+    }
+    return [[_JSContext[@"textViewShouldEndEditing"] callWithArguments:@[textView]] toBool];
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    [_JSContext[@"textViewDidBeginEditing"] callWithArguments:@[textView]];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [_JSContext[@"textViewDidEndEditing"] callWithArguments:@[textView]];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    JSValue *value = _JSContext[@"textView_shouldChangeTextInRange_replacementText"];
+    if ([value isUndefined]) {
+        return true;
+    }
+    return [[_JSContext[@"textView_shouldChangeTextInRange_replacementText"] callWithArguments:@[textView,[JSValue valueWithRange:range inContext:_JSContext],text]] toBool];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    [_JSContext[@"textViewDidChange"] callWithArguments:@[textView]];
+}
+
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+    [_JSContext[@"textViewDidChangeSelection"] callWithArguments:@[textView]];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction NS_AVAILABLE_IOS(10_0) {
+    JSValue *value = _JSContext[@"textView_shouldInteractWithURL_inRange_interaction"];
+    if ([value isUndefined]) {
+        return true;
+    }
+    return [[_JSContext[@"textView_shouldInteractWithURL_inRange_interaction"] callWithArguments:@[textView,URL,[JSValue valueWithRange:characterRange inContext:_JSContext],@(interaction)]] toBool];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction NS_AVAILABLE_IOS(10_0) {
+    JSValue *value = _JSContext[@"textView_shouldInteractWithURL_inRange_interaction"];
+    if ([value isUndefined]) {
+        return true;
+    }
+    return [[_JSContext[@"textView_shouldInteractWithURL_inRange_interaction"] callWithArguments:@[textView,textAttachment,[JSValue valueWithRange:characterRange inContext:_JSContext],@(interaction)]] toBool];
 }
 
 @end

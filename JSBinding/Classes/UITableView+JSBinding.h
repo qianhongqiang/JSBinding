@@ -1,15 +1,15 @@
 //
-//  JSBTableView.h
+//  UITableView+JSBinding.h
 //  Pods
 //
-//  Created by qianhongqiang on 2017/6/23.
+//  Created by qianhongqiang on 2017/7/12.
 //
 //
 
 #import <UIKit/UIKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@protocol JSBTableViewJSBindingProtocol <NSObject,JSExport>
+@protocol UITableViewJSBindingProtocol <NSObject,JSExport>
 
 - (UITableViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
 
@@ -49,12 +49,14 @@
 - (void)reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
 - (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
 
+-(void)setDelegate:(id<UITableViewDelegate>)delegate;
+
+-(void)setDataSource:(id<UITableViewDataSource>)dataSource;
+
 @property (nonatomic) UITableViewCellSeparatorStyle separatorStyle;
 
 @end
 
-@interface JSBTableView : UITableView<JSBTableViewJSBindingProtocol,UITableViewDelegate,UITableViewDataSource>
-
-@property (nonatomic, weak) JSContext *context;
+@interface UITableView (JSBinding)<UITableViewJSBindingProtocol>
 
 @end

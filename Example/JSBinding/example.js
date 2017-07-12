@@ -1,5 +1,8 @@
 var screenBound = ScreenBounds()
-var table = UITableViewWithRect(CGRect(0,0,screenBound.width,screenBound.height - 46))
+var table = Class("UITableView").create()
+table.setFrame(CGRect(0,0,screenBound.width,screenBound.height - 46))
+table.setDelegate(self)
+table.setDataSource(self)
 table.separatorStyle = 0
 
 var inputBar = Class("UIView").create()
@@ -15,8 +18,9 @@ backgroundImageView.setFrame(CGRect(47,9,screenBound.width - 36 * 2 - 38 - 9 * 2
 backgroundImageView.setImage(UIImage.imageNamed("icon_input_text_bg").resizableImageWithJSBCapInsetsResizingMode(UIEdgeInsets(15,80,15,80),1))
 inputBar.addSubview(backgroundImageView)
 
-var inputTextView = UITextView()
+var inputTextView = Class("UITextView").create()
 inputTextView.setFrame(CGRect(52,14,screenBound.width - 36 * 2 - 38 - 9 * 2 - 10,19))
+inputTextView.setDelegate(self)
 inputBar.addSubview(inputTextView)
 
 var sendButton = UIButton()
