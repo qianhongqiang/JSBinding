@@ -14,7 +14,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self addTarget:self action:@selector(onTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
-        [NSUserDefaults standardUserDefaults];
     }
     return self;
 }
