@@ -14,7 +14,7 @@
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor;
 
-- (void)setFrame:(CGRect)rect;
+@property(nonatomic) CGRect frame;
 
 - (BOOL)resignFirstResponder;
 

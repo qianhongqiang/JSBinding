@@ -10,4 +10,8 @@
 
 @implementation UITableView (JSBinding)
 
++ (instancetype)tableViewWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    return [[self alloc] initWithFrame:frame style:style];
+}
+
 @end

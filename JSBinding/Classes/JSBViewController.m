@@ -143,13 +143,52 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [_JSContext evaluateScript:[NSString stringWithFormat:@"viewDidAppear(%d)",animated]];
+//    [self testA:2 testB:[NSObject new] textC:YES];
 }
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-
+//- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+//    NSMethodSignature *superSign = [super methodSignatureForSelector:aSelector];
+//    if (superSign) {
+//        return superSign;
+//    }
+//    return [NSMethodSignature signatureWithObjCTypes:"@@:@"];
+//}
+//
+//- (void)forwardInvocation:(NSInvocation *)anInvocation {
+//    NSString *selStr = NSStringFromSelector(anInvocation.selector);
+//    selStr = [selStr stringByReplacingOccurrencesOfString:@":" withString:@"_"];
+//    selStr = [selStr substringWithRange:NSMakeRange(0, selStr.length - 1)];
+//    JSValue *value = _JSContext[selStr];
+//    if (![value isUndefined]) {
+//        NSMutableArray *args = [NSMutableArray array];
+//        NSUInteger argsNumber = anInvocation.methodSignature.numberOfArguments;
+//        if (argsNumber <= 1) {
+//            JSValue *ret =[value callWithArguments:args];
+//            [anInvocation setReturnValue:(void *)ret];
+//            return;
+//        }
+//        
+//        for (int i = 2; i < argsNumber; i++) {
+//            const char *type = [anInvocation.methodSignature getArgumentTypeAtIndex:i];
+//            if (strcmp(type, "@") == 0) {
+//                NSObject *obj = nil;
+//                [anInvocation getArgument:&obj atIndex:i];
+//                if (obj == nil) {
+//                    break;
+//                }
+//                [args addObject:obj];
+//            }
+//        }
+//        
+//        JSValue *ret =[value callWithArguments:args];
+//        [anInvocation setReturnValue:(void *)ret];
+//    }
+//}
+//
 //- (BOOL)respondsToSelector:(SEL)aSelector {
 //    if (_JSContext) {
 //        NSString *sel = NSStringFromSelector(aSelector);

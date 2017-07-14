@@ -19,4 +19,6 @@
 
 - (instancetype)initWithJavascript:(NSString *)script;
 
+- (void)testA:(int)a testB:(id)B textC:(BOOL)c;
+
 @end

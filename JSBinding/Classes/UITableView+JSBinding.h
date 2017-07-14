@@ -10,7 +10,10 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 
 @protocol UITableViewJSBindingProtocol <NSObject,JSExport>
+//static return instancetype
++ (instancetype)tableViewWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 
+//system
 - (UITableViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
 
 - (void)reloadData;
@@ -58,5 +61,7 @@
 @end
 
 @interface UITableView (JSBinding)<UITableViewJSBindingProtocol>
+
++ (instancetype)tableViewWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 
 @end
