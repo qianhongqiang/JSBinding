@@ -36,6 +36,12 @@ TODO: Add long description of the pod here.
     ss.resources = "JSBinding/Resource/*.js"
   end
 
+  s.subspec "SDWebImageBinding" do |ss|
+    ss.ios.source_files = 'JSBinding/SDWebImage/**/*'
+    ss.dependency 'SDWebImage'
+  end
+
+
   # s.resource_bundles = {
   #   'JSBinding' => ['JSBinding/Assets/*.png']
   # }

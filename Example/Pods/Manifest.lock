@@ -9,16 +9,20 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - JSBinding (0.1.0):
-    - JSBinding/UIKitBinding (= 0.1.0)
+  - JSBinding/SDWebImageBinding (0.1.0):
+    - SDWebImage
   - JSBinding/UIKitBinding (0.1.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - Specta (1.0.6)
 
 DEPENDENCIES:
   - Expecta
   - Expecta+Snapshots
   - FBSnapshotTestCase
-  - JSBinding (from `../`)
+  - JSBinding/SDWebImageBinding (from `../`)
+  - JSBinding/UIKitBinding (from `../`)
   - Specta
 
 EXTERNAL SOURCES:
@@ -29,9 +33,10 @@ SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   Expecta+Snapshots: dcff217eef506dabd6dfdc7864ea2da321fafbb8
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  JSBinding: 6c771e023bd83424eddf4ba3a75a7ffef6701697
+  JSBinding: aaa4853a323a705941fd0ca1994558b158859f37
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
 
-PODFILE CHECKSUM: b0d7f5bc7427bd84173e358e269b34f26786412b
+PODFILE CHECKSUM: 15e91b18390755e800d4414b2abe0d193d4a9dc3
 
 COCOAPODS: 1.2.1

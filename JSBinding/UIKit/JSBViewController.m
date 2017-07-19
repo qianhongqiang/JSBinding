@@ -108,6 +108,7 @@
         CLASSBINDING(@"UIImage")
         CLASSBINDING(@"UITableView")
         CLASSBINDING(@"UITextView")
+        CLASSBINDING(@"NSURL")
         
         __weak typeof(self) weakSelf = self;
         _JSContext[@"self"] = ^id{

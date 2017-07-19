@@ -26,6 +26,17 @@
         "source_files": "JSBinding/UIKit/**/*"
       },
       "resources": "JSBinding/Resource/*.js"
+    },
+    {
+      "name": "SDWebImageBinding",
+      "ios": {
+        "source_files": "JSBinding/SDWebImage/**/*"
+      },
+      "dependencies": {
+        "SDWebImage": [
+
+        ]
+      }
     }
   ]
 }

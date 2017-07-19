@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'JSBinding_Example' do
-  pod 'JSBinding', :path => '../'
+  pod 'JSBinding', :path => '../', :subspecs => ['UIKitBinding','SDWebImageBinding']
 
   target 'JSBinding_Tests' do
     inherit! :search_paths

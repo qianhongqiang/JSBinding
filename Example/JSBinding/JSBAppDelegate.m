@@ -8,7 +8,6 @@
 
 #import "JSBAppDelegate.h"
 #import <JSBinding/JSBViewController.h>
-#import <WebKit/WebKit.h>
 
 @implementation JSBAppDelegate
 
@@ -18,7 +17,6 @@
     
     NSString *scriptPth = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"js"];
     NSString *script = [NSString stringWithContentsOfFile:scriptPth encoding:NSUTF8StringEncoding error:nil];
-    
     
     self.window.rootViewController = [[JSBViewController alloc] initWithJavascript:script];
     
