@@ -29,10 +29,13 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  s.default_subspec = 'UIKitBinding'
 
-  s.source_files = 'JSBinding/Classes/**/*'
-  s.resources    = "JSBinding/Assets/*.js"
-  
+  s.subspec "UIKitBinding" do |ss|
+    ss.ios.source_files = 'JSBinding/Classes/**/*'
+    ss.resources = "JSBinding/Assets/*.js"
+  end
+
   # s.resource_bundles = {
   #   'JSBinding' => ['JSBinding/Assets/*.png']
   # }

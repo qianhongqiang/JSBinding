@@ -18,6 +18,14 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "JSBinding/Classes/**/*",
-  "resources": "JSBinding/Assets/*.js"
+  "default_subspecs": "UIKitBinding",
+  "subspecs": [
+    {
+      "name": "UIKitBinding",
+      "ios": {
+        "source_files": "JSBinding/Classes/**/*"
+      },
+      "resources": "JSBinding/Assets/*.js"
+    }
+  ]
 }
