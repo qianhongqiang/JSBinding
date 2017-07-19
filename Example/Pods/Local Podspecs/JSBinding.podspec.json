@@ -23,9 +23,9 @@
     {
       "name": "UIKitBinding",
       "ios": {
-        "source_files": "JSBinding/Classes/**/*"
+        "source_files": "JSBinding/UIKit/**/*"
       },
-      "resources": "JSBinding/Assets/*.js"
+      "resources": "JSBinding/Resource/*.js"
     }
   ]
 }

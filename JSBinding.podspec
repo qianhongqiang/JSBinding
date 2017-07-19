@@ -32,8 +32,8 @@ TODO: Add long description of the pod here.
   s.default_subspec = 'UIKitBinding'
 
   s.subspec "UIKitBinding" do |ss|
-    ss.ios.source_files = 'JSBinding/Classes/**/*'
-    ss.resources = "JSBinding/Assets/*.js"
+    ss.ios.source_files = 'JSBinding/UIKit/**/*'
+    ss.resources = "JSBinding/Resource/*.js"
   end
 
   # s.resource_bundles = {
