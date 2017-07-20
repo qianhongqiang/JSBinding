@@ -144,7 +144,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [_JSContext evaluateScript:[NSString stringWithFormat:@"viewDidAppear(%d)",animated]];
-//    [self testA:2 testB:[NSObject new] textC:YES];
 }
 
 -(void)dealloc {
