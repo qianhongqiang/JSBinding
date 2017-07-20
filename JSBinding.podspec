@@ -41,12 +41,9 @@ TODO: Add long description of the pod here.
     ss.dependency 'SDWebImage'
   end
 
+  s.subspec "AFNetworkingBinding" do |ss|
+    ss.ios.source_files = 'JSBinding/AFNetworking/**/*'
+    ss.dependency 'AFNetworking'
+  end
 
-  # s.resource_bundles = {
-  #   'JSBinding' => ['JSBinding/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

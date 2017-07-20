@@ -37,6 +37,17 @@
 
         ]
       }
+    },
+    {
+      "name": "AFNetworkingBinding",
+      "ios": {
+        "source_files": "JSBinding/AFNetworking/**/*"
+      },
+      "dependencies": {
+        "AFNetworking": [
+
+        ]
+      }
     }
   ]
 }

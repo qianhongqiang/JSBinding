@@ -20,6 +20,11 @@
 
 #define CLASSBINDING(className) _JSContext[className] = NSClassFromString(className);
 
+#define SAFECLASSBINDING(className)         Class class = NSClassFromString(className);\
+if (class != NULL) {\
+    _JSContext[className] = class;\
+}
+
 @implementation JSBViewController
 {
     JSContext *_JSContext;
@@ -110,6 +115,8 @@
         CLASSBINDING(@"UITextView")
         CLASSBINDING(@"NSURL")
         
+        SAFECLASSBINDING(@"AFHTTPSessionManager")
+        
         __weak typeof(self) weakSelf = self;
         _JSContext[@"self"] = ^id{
             __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -136,7 +143,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    // Do any additional setup after loading the view.
+    
     [_JSContext evaluateScript:@"viewDidLoad()"];
     
 }

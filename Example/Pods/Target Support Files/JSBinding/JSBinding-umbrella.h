@@ -10,6 +10,8 @@
 #endif
 #endif
 
+#import "AFHTTPSessionManager+JSBinding.h"
+#import "AFURLSessionManager+JSBinding.h"
 #import "UIImageView+SDWebImageJSBinding.h"
 #import "JSBButton.h"
 #import "JSBClass.h"

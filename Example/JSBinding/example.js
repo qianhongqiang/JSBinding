@@ -30,6 +30,13 @@ inputBar.addSubview(sendButton)
 
 var data = ["hellookdasskahdhksahdjhsakjhdkjsahdjksahkjdhsamxzbchasjkjdmsnxbjhzcjvdmcnxmbcxzmncmxzbcnadsjkhsahdjksad","world","test","dshdjshd"]
 
+AFHTTPSessionManager.manager().jsb_GETParametersSuccessFailure("aaaa",{"k":"v"},function(a,b){
+                                                        
+                                                        },function(c,d){
+                                                               log(d)
+                                                        })
+
+
 function viewDidLoad()
 {
     self.view.addSubview(table)
