@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
+@protocol UIWebViewJSBindingProtocol <NSObject,JSExport>
 
-@interface UIWebView (JSBinding)
+- (void)loadRequest:(NSURLRequest *)request;
+
+@end
+
+@interface UIWebView (JSBinding)<UIWebViewJSBindingProtocol>
 
 @end

@@ -30,18 +30,17 @@ inputBar.addSubview(sendButton)
 
 var data = ["hellookdasskahdhksahdjhsakjhdkjsahdjksahkjdhsamxzbchasjkjdmsnxbjhzcjvdmcnxmbcxzmncmxzbcnadsjkhsahdjksad","world","test","dshdjshd"]
 
-AFHTTPSessionManager.manager().jsb_GETParametersSuccessFailure("aaaa",{"k":"v"},function(a,b){
-                                                        
-                                                        },function(c,d){
-                                                               log(d)
-                                                        })
-
+var webview = Class("UIWebView").create()
+webview.frame = CGRect(0,0,screenBound.width,screenBound.height - 46)
 
 function viewDidLoad()
 {
     self.view.addSubview(table)
     
     self.view.addSubview(inputBar)
+    
+    self.view.addSubview(webview)
+    webview.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("https://github.com")))
     
     addObserverForName("UIKeyboardWillShowNotification",function(noti)
                        {

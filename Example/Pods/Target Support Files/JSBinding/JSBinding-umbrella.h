@@ -22,6 +22,7 @@
 #import "NSNotification+JSBinding.h"
 #import "NSNotificationCenter+JSBinding.h"
 #import "NSURL+JSBinding.h"
+#import "NSURLRequest+JSBinding.h"
 #import "NSUserDefaults+JSBinding.h"
 #import "NSValue+JSBinding.h"
 #import "UIColor+JSBingding.h"

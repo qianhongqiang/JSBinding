@@ -114,6 +114,7 @@ if (class != NULL) {\
         CLASSBINDING(@"UITableView")
         CLASSBINDING(@"UITextView")
         CLASSBINDING(@"NSURL")
+        CLASSBINDING(@"NSURLRequest")
         
         SAFECLASSBINDING(@"AFHTTPSessionManager")
         
