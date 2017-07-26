@@ -16,6 +16,8 @@
 
 @property (readonly) NSUInteger length;
 
++ (instancetype)indexPathForRow:(NSInteger)row inSection:(NSInteger)section;
+
 @end
 
 @interface NSIndexPath (JSBinding)<NSIndexPathJSBindingProtocol>

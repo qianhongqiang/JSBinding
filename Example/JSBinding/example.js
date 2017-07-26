@@ -28,19 +28,13 @@ sendButton.setTitleForState("发送",0)
 sendButton.setTitleColorForState(UIColor.colorWithRedGreenBlueAlpha(0,0,0,1),0)
 inputBar.addSubview(sendButton)
 
-var data = ["hellookdasskahdhksahdjhsakjhdkjsahdjksahkjdhsamxzbchasjkjdmsnxbjhzcjvdmcnxmbcxzmncmxzbcnadsjkhsahdjksad","world","test","dshdjshd"]
-
-var webview = Class("UIWebView").create()
-webview.frame = CGRect(0,0,screenBound.width,screenBound.height - 46)
+var data = ["hellookdasskahdhksahdjhsakjhdkjsahdjksahkjdhsamxzbchaskhsahdjksad","world","test","dshdjshd"]
 
 function viewDidLoad()
 {
     self.view.addSubview(table)
     
     self.view.addSubview(inputBar)
-    
-    self.view.addSubview(webview)
-    webview.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("https://github.com")))
     
     addObserverForName("UIKeyboardWillShowNotification",function(noti)
                        {

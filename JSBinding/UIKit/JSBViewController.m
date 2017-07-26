@@ -69,10 +69,6 @@ if (class != NULL) {\
             return [JSValue valueWithSize:CGSizeMake(doubleArg(0), doubleArg(1)) inContext:weakContext];
         };
         
-        _JSContext[@"NSIndexPath"] = ^id {
-            return [NSIndexPath indexPathForRow:intArg(0) inSection:intArg(1)];
-        };
-        
         _JSContext[@"UIEdgeInsets"] = ^id{
             JSBUIEdgeInsets *edge = [[JSBUIEdgeInsets alloc] init];
             edge.edge = UIEdgeInsetsMake(doubleArg(0), doubleArg(1), doubleArg(2), doubleArg(3));
@@ -115,6 +111,7 @@ if (class != NULL) {\
         CLASSBINDING(@"UITextView")
         CLASSBINDING(@"NSURL")
         CLASSBINDING(@"NSURLRequest")
+        CLASSBINDING(@"NSIndexPath")
         
         SAFECLASSBINDING(@"AFHTTPSessionManager")
         
